@@ -1,4 +1,4 @@
 deploy:
-  - okteto build --file api.Dockerfile -t tomaszczerminski/api:${OKTETO_GIT_COMMIT} api
-  - okteto build --file domain.Dockerfile -t tomaszczerminski/domain:${OKTETO_GIT_COMMIT} domain
+  - okteto build --file api.Dockerfile -t tomaszczerminski/api:${OKTETO_GIT_COMMIT}
+  - okteto build --file domain.Dockerfile -t tomaszczerminski/domain:${OKTETO_GIT_COMMIT}
   - helm upgrade --install octopus chart --set tag=${OKTETO_GIT_COMMIT}
