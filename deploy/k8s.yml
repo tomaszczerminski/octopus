@@ -15,8 +15,16 @@ spec:
       containers:
         - image: registry.cloud.okteto.net/tomaszczerminski/domain:latest
           name: domain
+          env:
+            - name: VERSION
+              value: 0.0.1
         - image: registry.cloud.okteto.net/tomaszczerminski/api:latest
           name: api
+          env:
+            - name: VERSION
+              value: "0.0.1"
+            - name: PORT
+              value: "8080"
 
 ---
 
