@@ -1,4 +1,4 @@
 deploy:
-  - okteto build --file api.Dockerfile -t tomaszczerminski/api:${OKTETO_GIT_COMMIT} .
-  - okteto build --file domain.Dockerfile -t tomaszczerminski/domain:${OKTETO_GIT_COMMIT} .
+  - okteto build --file api.Dockerfile -t registry.cloud.okteto.net/tomaszczerminski/api:${OKTETO_GIT_COMMIT} .
+  - okteto build --file domain.Dockerfile -t registry.cloud.okteto.net/tomaszczerminski/domain:${OKTETO_GIT_COMMIT} .
   - kubectl apply -f deploy/k8s.yml

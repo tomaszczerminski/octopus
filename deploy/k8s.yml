@@ -13,7 +13,7 @@ spec:
         app: api
     spec:
       containers:
-        - image: tomaszczerminski/api:latest
+        - image: registry.cloud.okteto.net/tomaszczerminski/api:latest
           name: api
 
 ---
@@ -49,7 +49,7 @@ spec:
         app: domain
     spec:
       containers:
-        - image: tomaszczerminski/domain:latest
+        - image: registry.cloud.okteto.net/tomaszczerminski/domain:latest
           name: domain
 
 ---
