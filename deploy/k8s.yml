@@ -1,18 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: api
+  name: octopus
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: api
+      app: octopus
   template:
     metadata:
       labels:
-        app: api
+        app: octopus
     spec:
       containers:
+        - image: registry.cloud.okteto.net/tomaszczerminski/domain:latest
+          name: domain
         - image: registry.cloud.okteto.net/tomaszczerminski/api:latest
           name: api
 
@@ -21,49 +23,13 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: api
+  name: octopus
   annotations:
     dev.okteto.com/auto-ingress: "true"
 spec:
   type: ClusterIP
   ports:
-    - name: "api"
+    - name: "octopus"
       port: 8080
   selector:
-    app: api
-
----
-
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: domain
-spec:
-  replicas: 1
-  selector:
-    matchLabels:
-      app: domain
-  template:
-    metadata:
-      labels:
-        app: domain
-    spec:
-      containers:
-        - image: registry.cloud.okteto.net/tomaszczerminski/domain:latest
-          name: domain
-
----
-
-apiVersion: v1
-kind: Service
-metadata:
-  name: domain
-  annotations:
-    dev.okteto.com/auto-ingress: "true"
-spec:
-  type: ClusterIP
-  ports:
-    - name: "domain"
-      port: 8080
-  selector:
-    app: domain
+    app: octopus
