@@ -3,7 +3,7 @@ FROM golang:1.15 AS builder
 COPY ${PWD} /app
 WORKDIR /app
 
-RUN CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' -o /app/domain *.go
+RUN CGO_ENABLED=0 go build -ldflags '-s -w -extldflags "-static"' -o /app/domain cmd/domain.go
 
 FROM scratch
 LABEL MAINTAINER = czerminski.tomasz@gmail.com
