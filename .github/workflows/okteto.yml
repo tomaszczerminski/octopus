@@ -28,8 +28,17 @@ jobs:
         with:
           name: octopus
 
-      - name: "Trigger the pipeline"
-        uses: okteto/pipeline@master
+      - name: "Build API"
+        uses: okteto/build@master
         with:
-          name: octopus
-          timeout: 8m
+          tag: registry.cloud.okteto.net/tomaszczerminski/api:latest
+
+      - name: "Build Domain"
+        uses: okteto/build@master
+        with:
+          tag: registry.cloud.okteto.net/tomaszczerminski/domain:latest
+
+      - name: "Create deployment"
+        uses: okteto/apply@master
+        with:
+          manifest: deploy/k8s.yaml

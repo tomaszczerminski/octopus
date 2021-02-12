@@ -1,4 +1,0 @@
-deploy:
-  - okteto build --file api.Dockerfile -t registry.cloud.okteto.net/tomaszczerminski/api:latest .
-  - okteto build --file domain.Dockerfile -t registry.cloud.okteto.net/tomaszczerminski/domain:latest .
-  - kubectl apply -f deploy/k8s.yml
