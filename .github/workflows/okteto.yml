@@ -22,8 +22,14 @@ jobs:
         with:
           name: tomaszczerminski
 
+      - name: "Destroy the pipeline"
+        uses: okteto/destroy-pipeline@master
+        continue-on-error: true
+        with:
+          name: octopus
+
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@master
         with:
-          name: octopus-$GITHUB_SHA
+          name: octopus
           timeout: 8m
