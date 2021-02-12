@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@master
 
       - name: Login
-        uses: okteto/login@master
-        with:
+        env:
           token: ${{ secrets.OKTETO_TOKEN }}
+        uses: okteto/login@master
 
       - name: "Activate Namespace"
         uses: okteto/namespace@master
@@ -25,5 +25,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@master
         with:
-          name: pr-${{ github.event.number }}
+          name: okteto-pipeline.yml
           timeout: 8m
