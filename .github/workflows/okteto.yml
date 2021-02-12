@@ -25,5 +25,5 @@ jobs:
       - name: "Trigger the pipeline"
         uses: okteto/pipeline@master
         with:
-          name: octopus-${{ GITHUB_SHA }}
+          name: octopus-$GITHUB_SHA
           timeout: 8m
