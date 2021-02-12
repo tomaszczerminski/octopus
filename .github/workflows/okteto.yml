@@ -31,11 +31,13 @@ jobs:
       - name: "Build API"
         uses: okteto/build@master
         with:
+          file: api.Dockerfile
           tag: registry.cloud.okteto.net/tomaszczerminski/api:latest
 
       - name: "Build Domain"
         uses: okteto/build@master
         with:
+          file: domain.Dockerfile
           tag: registry.cloud.okteto.net/tomaszczerminski/domain:latest
 
       - name: "Create deployment"
