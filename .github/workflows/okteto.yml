@@ -43,4 +43,4 @@ jobs:
       - name: "Create deployment"
         uses: okteto/apply@master
         with:
-          manifest: deploy/k8s.yaml
+          manifest: deploy/k8s.yml
