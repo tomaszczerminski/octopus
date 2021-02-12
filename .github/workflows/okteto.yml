@@ -13,9 +13,9 @@ jobs:
         uses: actions/checkout@master
 
       - name: Login
-        env:
-          token: ${{ secrets.OKTETO_TOKEN }}
         uses: okteto/login@master
+        with:
+          token: ${{ secrets.OKTETO_TOKEN }}
 
       - name: "Activate Namespace"
         uses: okteto/namespace@master
